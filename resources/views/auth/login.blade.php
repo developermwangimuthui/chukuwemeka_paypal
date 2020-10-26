@@ -100,7 +100,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="theme/index2.html"><b>Admin</b>LTE</a>
+    <a href="theme/index2.html"><b>PFA</b>MART</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -156,7 +156,7 @@
       </form>
 
 
-     
+
     </div>
     <!-- /.login-card-body -->
   </div>

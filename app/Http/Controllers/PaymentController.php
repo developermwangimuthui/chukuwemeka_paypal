@@ -96,8 +96,8 @@ class PaymentController  extends Controller
             ->setDescription("Payment description")
             ->setInvoiceNumber(uniqid());
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl("http://127.0.0.1:8000/execute_payment/" . $enter_amount . "/" . $currency_type . "/" . $service_id . "/" . $firstname . "/" . $lastname . "/" . $email."/".$service_name_input)
-            ->setCancelUrl("http://127.0.0.1:8000/cancel_payment");
+        $redirectUrls->setReturnUrl("http://pay.pfamart.com/execute_payment/" . $enter_amount . "/" . $currency_type . "/" . $service_id . "/" . $firstname . "/" . $lastname . "/" . $email."/".$service_name_input)
+            ->setCancelUrl("http://pay.pfamart.com/cancel_payment");
 
         $payment = new Payment();
         $payment->setIntent("sale")
