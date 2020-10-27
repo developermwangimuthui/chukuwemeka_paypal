@@ -96,7 +96,7 @@ class PaymentController  extends Controller
             ->setDescription("Payment description")
             ->setInvoiceNumber(uniqid());
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl("http://pay.pfamart.com/execute_payment/" . $enter_amount . "/" . $currency_type . "/" . $service_id . "/" . $firstname . "/" . $lastname . "/" . $email."/".$service_name_input)
+        $redirectUrls->setReturnUrl("http://pay.pfamart.com/execute_payment/" . $enter_amount . "/" . $currency_type . "/" . $service_id . "/" . $firstname . "/" . $lastname . "/" . $email . "/" . $service_name_input)
             ->setCancelUrl("http://pay.pfamart.com/cancel_payment");
 
         $payment = new Payment();
@@ -110,7 +110,7 @@ class PaymentController  extends Controller
         return redirect($approvalUrl);
     }
 
-    public function execute_payment(Request $request, $enter_amount, $currency_type, $service_id, $firstname, $lastname, $email,$service_name_input)
+    public function execute_payment(Request $request, $enter_amount, $currency_type, $service_id, $firstname, $lastname, $email, $service_name_input)
     {
 
 
@@ -189,7 +189,7 @@ class PaymentController  extends Controller
             $order->order_number = rand(1, 10000);
             $order->currency_type = $currency_type;
             $service = Service::where('id', $service_id)->pluck('service_name')->first();
-            $order->service_description =$service_name_input;
+            $order->service_description = $service_name_input;
             $order->amount = $our_amount;
             $order->result = $result;
             if ($order->save()) {
@@ -228,7 +228,7 @@ class PaymentController  extends Controller
             $order->service_id = $service_id;
             $order->order_number = rand(1, 10000);
             $order->currency_type = $currency_type;
-        $service = Service::where('id', $service_id)->pluck('service_name')->first();
+            $service = Service::where('id', $service_id)->pluck('service_name')->first();
             $order->service_description = $service_name_input;
             $order->amount = $our_amount;
             $order->result = $result;

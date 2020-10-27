@@ -249,7 +249,7 @@ use Illuminate\Support\Facades\Session;?>
         <div class="col-md-12">
             <div class="logo">
                 <a href="https://pfaccounts.com/">
-                    <img src="<?= url('/images/front_logo/pfa-2.png')?>" height="50" width="100"/>
+                    <img src="<?= url('/images/pfa-2.png')?>" height="50" width="100"/>
                 </a>
             </div>
         </div>

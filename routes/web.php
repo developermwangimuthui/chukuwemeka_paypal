@@ -74,9 +74,9 @@ Route::get('/order/reports', 'OrderController@reports')->name('order.reports');
 
 //..........................Paypal..........................................//
 
-Route::get('execute_payment/{amount}/{currency}/{service}/{firstname}/{lastname}/{email}/{service_name_input}', 'PaymentController@execute_payment')->name('execute_payment');
-Route::post('create_payment', 'PaymentController@create_payment')->name('create_payment');
-Route::get('cancel_payment', 'PaymentController@cancel_payment')->name('cancel_payment');
+Route::get('/execute_payment/{amount}/{currency}/{service}/{firstname}/{lastname}/{email}/{service_name_input}', 'PaymentController@execute_payment')->name('execute_payment');
+Route::post('/create_payment', 'PaymentController@create_payment')->name('create_payment');
+Route::get('/cancel_payment', 'PaymentController@cancel_payment')->name('cancel_payment');
 
 
 //............................Chart.................................//
@@ -87,3 +87,26 @@ Route::get('/getMonthlyCompletedOrdersCount', 'ChartController@getMonthlyComplet
 Route::get('/getMonthlyCancelledOrdersCount', 'ChartController@getMonthlyCancelledOrdersCount')->name('getMonthlyCancelledOrdersCount');
 Route::get('/getMonthlyReturnOrdersCount', 'ChartController@getMonthlyReturnOrdersCount')->name('getMonthlyReturnOrdersCount');
 Route::get('/getMonthlyOrdersData', 'ChartController@getMonthlyOrdersData')->name('getMonthlyOrdersData');
+
+
+//..............................Cache............................................//
+Route::get('/config-cache', function () {
+    $exitCode = Artisan::call('config:cache');
+    return 'Success';
+    // return what you want
+});
+Route::get('/cache-clear', function () {
+    $exitCode = Artisan::call('cache:clear');
+    return 'Success';
+    // return what you want
+});
+Route::get('/view-clear', function () {
+    $exitCode = Artisan::call('view:clear');
+    return 'Success';
+    // return what you want
+});
+Route::get('/route-clear', function () {
+    $exitCode = Artisan::call('route:clear');
+    return 'Success';
+    // return what you want
+});
