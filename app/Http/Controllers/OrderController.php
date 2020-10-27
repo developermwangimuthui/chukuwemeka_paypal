@@ -208,9 +208,9 @@ class OrderController extends Controller
             ->where('orders.id', $id)
             ->groupBy('orders.id')
             ->get();
-
+           $name= $orders[0]->order_number;
         $pdf = PDF::loadView('orders.pdf', compact('orders'));
 
-        return $pdf->download('invoice.pdf');
+        return $pdf->download("Invoice_".$name.".pdf");
     }
 }
