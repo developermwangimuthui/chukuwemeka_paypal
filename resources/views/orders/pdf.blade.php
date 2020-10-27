@@ -110,7 +110,11 @@
                         <th>Price</th>
                     </tr>
                     <tr>
-                        <td> {{  $order->service_name }}</td>
+                        <td> @if ($order->service_description == null ||$order->service_description =='')
+                            {{$order->service_name}}
+                        @else
+                            {{$order->service_description}}
+                        @endif</td>
                         <td>1</td>
                         <td>@if($order->currency_type == 'USD')
                                 $

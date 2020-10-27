@@ -49,8 +49,6 @@ class PaymentController  extends Controller
         $paypal_secret = Settings::pluck('paypal_secret')->first();
 
 
-
-
         $apiContext = new \PayPal\Rest\ApiContext(
             new \PayPal\Auth\OAuthTokenCredential(
                 $paypal_client_id, // ClientID
