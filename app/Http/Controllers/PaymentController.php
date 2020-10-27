@@ -40,6 +40,10 @@ class PaymentController  extends Controller
         $lastname = $request->input('last-name');
         $email = $request->input('email-address');
         $service_name_input = $request->input('service-name-input');
+        if($service_name_input==null || $service_name_input == ''){
+
+            $service_name_input = $service;
+        }
 
         $paypal_client_id = Settings::pluck('paypal_client_id')->first();
         $paypal_secret = Settings::pluck('paypal_secret')->first();
