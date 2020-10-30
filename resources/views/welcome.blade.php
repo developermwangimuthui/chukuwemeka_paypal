@@ -206,16 +206,17 @@
 
         function getNewVal(item) {
                 var selectOption = $( "#services option:selected" ).text();
-                console.log(selectOption);
-                if (selectOption.match(/Others.*/) || selectOption.match(/others.*/)) {
+                if (selectOption.match(/Other.*/) || selectOption.match(/other.*/)) {
                     $('.otherServices').show();
                     $('#service-name-input').show();
                     $('#service-name-input-label').show();
+
 
                 } else {
                     $('.otherServices').hide();
                     $('#service-name-input').hide();
                     $('#service-name-input-label').hide();
+
                 }
 
             }
