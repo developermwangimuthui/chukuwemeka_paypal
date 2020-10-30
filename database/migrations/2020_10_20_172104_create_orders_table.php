@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('service_description');
             $table->string('order_number');
             $table->string('amount');
+            $table->string('converted_amount');
             $table->string('currency_type');
             $table->longText('result');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');

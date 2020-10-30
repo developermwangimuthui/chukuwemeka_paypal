@@ -36,15 +36,15 @@
                 <thead>
                 <tr>
                   <th>Service</th>
-                  <th>Total Purchased</th>
+                  <th>Total Purchased  in (EUR)</th>
                 </tr>
                 </thead>
                 <tbody>
                     @foreach ($service_reports as $service_report)
                     <tr>
                     <td>{{$service_report->service_name}}</td>
-                    <td>{{$service_report->amount}}</td>
-                    </tr>
+                    <td> {{number_format(floatval($service_report->converted_amount),2)}} EUR </td>
+                </tr>
                     @endforeach
 
 

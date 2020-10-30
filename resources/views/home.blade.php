@@ -85,11 +85,17 @@
                 </h3>
                 <div class="card-tools">
                   <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#revenue-chart">Area</a>
+                    <li class="nav-item" style="background-color: #17A2B8">
+                      <a class="nav-link active">Cancelled</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#sales-chart">Donut</a>
+                    <li class="nav-item" style="background-color: #FFC107">
+                      <a class="nav-link" >Pending</a>
+                    </li>
+                    <li class="nav-item" style="background-color: red;">
+                      <a class="nav-link ">Returned</a>
+                    </li>
+                    <li class="nav-item" style="background-color:green">
+                      <a class="nav-link" >Completed</a>
                     </li>
                   </ul>
                 </div>
@@ -137,7 +143,7 @@
                     <tr>
                       <th>Date</th>
                       <th>Customer Name	</th>
-                      <th>Total Price</th>
+                      <th>Total Price in (EUR)</th>
                       <th>Status</th>
                     </tr>
                     </thead>
@@ -146,7 +152,7 @@
             <tr>
             <td>{{date('m/d/Y', strtotime($order->date_created))}}</td>
             <td>{{$order->first_name."  ".$order->last_name}}</td>
-            <td>{{$order->amount}}</td>
+        <td> {{number_format(floatval($order->converted_amount),2)}} EUR </td>
             <td>
                 <?php
 
@@ -289,6 +295,17 @@ $(document).ready(function () {
                                 pointHighlightFill  : '#fff',
                                 pointHighlightStroke: 'rgba(220,220,220,1)',
                                 data                : Data.cancelled_orders_count
+                                },
+                                {
+                                label               : 'Pending Orders',
+                                borderColor         : 'rgba(210, 214, 222, 1)',
+                                backgroundColor     : 'rgba(255, 193, 7)',
+                                pointRadius         : false,
+                                pointColor          : 'rgba(210, 214, 222, 1)',
+                                pointStrokeColor    : '#c1c7d1',
+                                pointHighlightFill  : '#fff',
+                                pointHighlightStroke: 'rgba(220,220,220,1)',
+                                data                : Data.pending_orders_count
                                 },
                             ]
                             }

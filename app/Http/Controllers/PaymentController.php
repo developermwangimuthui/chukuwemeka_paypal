@@ -98,8 +98,8 @@ class PaymentController  extends Controller
             ->setDescription("Payment description")
             ->setInvoiceNumber(uniqid());
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl("http://pay.pfamart.com/execute_payment/" . $enter_amount . "/" . $currency_type . "/" . $service_id . "/" . $firstname . "/" . $lastname . "/" . $email . "/" . $service_name_input)
-            ->setCancelUrl("http://pay.pfamart.com/cancel_payment");
+        $redirectUrls->setReturnUrl("https://pay.pfamart.com/execute_payment/" . $enter_amount . "/" . $currency_type . "/" . $service_id . "/" . $firstname . "/" . $lastname . "/" . $email . "/" . $service_name_input)
+            ->setCancelUrl("https://pay.pfamart.com/cancel_payment");
 
         $payment = new Payment();
         $payment->setIntent("sale")
@@ -143,6 +143,7 @@ class PaymentController  extends Controller
         //                 )
         //             );
 
+
         $paymentId = request('paymentId');
         $payment = Payment::get($paymentId, $apiContext);
 
@@ -166,6 +167,23 @@ class PaymentController  extends Controller
         $execution->addTransaction($transaction);
 
         $result = $payment->execute($execution, $apiContext);
+        // ..................................currency Conversion .........................................//
+        $url = "http://data.fixer.io/api/latest?access_key=fa339d42d0fa12edd10a6ac29c7a2064&format=1";
+        $data = file_get_contents($url);
+      $data =json_decode($data);
+
+    if($currency_type=='USD'){
+
+    $euro_to_usd = $data->rates->USD;
+    $converted_amount =$our_amount/$euro_to_usd;
+
+    }elseif ($currency_type == 'GBP') {
+    //   euro to usd
+    $euro_to_gbp = $data->rates->GBP;
+    $converted_amount =$our_amount/$euro_to_gbp;
+    }else{
+        $converted_amount = $our_amount;
+    }
         $check_user = User::where('email', $email)->pluck('id')->first();
         // dd($check_user);
         if ($check_user  == null || $check_user == "") {
@@ -193,6 +211,7 @@ class PaymentController  extends Controller
             $service = Service::where('id', $service_id)->pluck('service_name')->first();
             $order->service_description = $service_name_input;
             $order->amount = $our_amount;
+            $order->converted_amount = $converted_amount;
             $order->result = $result;
             if ($order->save()) {
 
@@ -233,6 +252,7 @@ class PaymentController  extends Controller
             $service = Service::where('id', $service_id)->pluck('service_name')->first();
             $order->service_description = $service_name_input;
             $order->amount = $our_amount;
+            $order->converted_amount = $converted_amount;
             $order->result = $result;
             if ($order->save()) {
 

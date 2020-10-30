@@ -37,7 +37,7 @@
                 <tr>
                   <th>Customer Name	</th>
                   <th>Email</th>
-                  <th>Total Purchased</th>
+                  <th>Total Purchased  in (EUR)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,7 +46,7 @@
                     <td>{{$customer_report->first_name."  ".$customer_report->last_name}}</td>
 
                     <td>{{$customer_report->email}}</td>
-                    <td>{{$customer_report->amount}}</td>
+                    <td> {{number_format(floatval($customer_report->converted_amount),2)}} EUR </td>
                     </tr>
                     @endforeach
 

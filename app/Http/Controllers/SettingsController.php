@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class SettingsController extends Controller
 {
+
+    public function __construct()
+    {
+
+         $this->middleware('permission:view_payment_methods', ['only' => ['index']]);
+         $this->middleware('permission:edit_payment_methods', ['only' => ['edit']]);
+         $this->middleware('permission:delete_payment_methods', ['only' => ['destroy']]);
+        //  $this->middleware('permission:delete_customers', ['only' => ['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *

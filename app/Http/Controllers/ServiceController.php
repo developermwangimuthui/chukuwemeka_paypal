@@ -8,11 +8,20 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
 
+         $this->middleware('permission:view_services', ['only' => ['index']]);
+         $this->middleware('permission:edit_services', ['only' => ['edit']]);
+         $this->middleware('permission:delete_services', ['only' => ['destroy']]);
+        //  $this->middleware('permission:delete_customers', ['only' => ['destroy']]);
+
+    }
     public function index()
     {
 
-        $services= Service::all();
+        $services= Service::orderBy('updated_at','ASC')->get();
+        // dd($services);
 
         return view('services.index',compact('services'));
     }

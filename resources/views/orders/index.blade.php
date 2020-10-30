@@ -41,7 +41,7 @@
                                 <thead>
                                 <tr>
                                     <th>Customer Name</th>
-                                    <th>Order Total	</th>
+                                    <th>Order Total	 in (EUR)</th>
                                     <th>Date Purchased</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -51,7 +51,7 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td>{{$order->first_name."  ".$order->last_name}}</td>
-                                        <td>{{$order->amount}}</td>
+                                        <td> {{number_format(floatval($order->converted_amount),2)}} EUR </td>
                                         <td>{{date('m/d/Y', strtotime($order->date_created))}}</td>
                                         <td>
                                            <?php

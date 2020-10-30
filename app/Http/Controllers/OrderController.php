@@ -16,6 +16,15 @@ use OrderStatusDescription as GlobalOrderStatusDescription;
 
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+
+         $this->middleware('permission:view_orders', ['only' => ['index']]);
+         $this->middleware('permission:generate_invoice', ['only' => ['show','downloadPdf']]);
+         $this->middleware('permission:delete_orders', ['only' => ['destroy']]);
+        //  $this->middleware('permission:delete_customers', ['only' => ['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,6 +45,7 @@ class OrderController extends Controller
                 'last_name',
                 'email',
                 'amount',
+                'converted_amount',
                 'orders.updated_at as date_created',
                 'orders_status_name',
                 'order_status_histories.updated_at as history'
@@ -93,9 +103,10 @@ class OrderController extends Controller
     {
 
         $service_reports = Service::join('orders', 'services.id', '=', 'orders.service_id')
+        ->where('orders.deleted_at','=',null)
             ->select([
                 'service_name',
-                DB::raw("SUM(orders.amount) as amount"),
+                DB::raw("SUM(orders.converted_amount) as converted_amount"),
 
             ])->groupBy('services.id')
             ->get();
@@ -178,9 +189,17 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Request $request,$id)
     {
-        //
+        $order = Order::findOrFail($id);
+        if ( $order->delete()) {
+            return redirect()->route('order.index')->with(['success' => 'Order deleted succesfully']);
+
+        }else{
+            return redirect()->route('order.index')->with(['error' => 'Order not deleted ']);
+
+
+         }
     }
     public function downloadPdf($id)
     {

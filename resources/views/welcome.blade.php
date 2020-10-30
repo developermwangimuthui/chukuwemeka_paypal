@@ -1,270 +1,3 @@
-<style>
-
-    .body {
-        background-color: #f5f7fa;
-        font-family: PayPal-Sans-Big, Helvetica Neue, Arial, sans-serif;
-    }
-
-    input, select {
-        border-radius: 10px !important;
-    }
-
-    .header {
-        text-align: left;
-        padding: 10px;
-        background-color: #f5f7fa;
-
-        box-sizing: border-box;
-
-
-        width: 100%;
-        z-index: 99999;
-    }
-
-    .header .logo {
-        text-align: left;
-    }
-
-    .header .logo img {
-
-    }
-
-    .form-worning {
-        font-weight: bold;
-        color: red;
-        display: none;
-    }
-
-    .menu {
-        margin-top: 25px;
-        float: right;
-    }
-
-    .menu ul {
-        margin: 0px;
-        padding: 0px;
-    }
-
-    .menu ul li {
-        list-style-type: none;
-        display: inline-block;
-    }
-
-    .menu ul li a {
-        padding: 10px;
-        color: #000000;
-        text-decoration: none;
-        font-weight: bold;
-        transition: 1s;
-    }
-
-    .menu ul li a:hover {
-        color: rgba(0, 0, 0, .6);
-    }
-
-    .wpmk-form {
-        width: 50%;
-        margin: auto;
-        margin-top: 0px;
-        box-sizing: border-box;
-        padding: 15px;
-        border: 1px solid #EDEDED;
-        box-shadow: 0px 0px 10px 5px #EDEDED;
-        margin-bottom: 20px;
-        overflow: hidden;
-        background-color: #FFFFFF;
-        border-radius: 5px;
-    }
-
-    .wpmk-form form {
-        overflow: hidden;
-        margin-bottom: 50px;
-    }
-
-    .wpmk-form .checkbox label {
-        padding-left: 0px;
-    }
-
-    .amount-wrap,
-    .footer-wrap {
-        width: 50%;
-        float: left;
-        box-sizing: border-box;
-        padding-right: 10px;
-    }
-
-    .footer-wrap {
-        text-align: left;
-    }
-
-    .footer-wrap img {
-        width: 50%;
-    }
-
-    .amount-wrap select,
-    .amount-wrap input {
-        width: 100%;
-    }
-
-    .wpmk-form .checkbox {
-        float: left;
-        width: 100%;
-    }
-
-    #other-wrap {
-        display: none;
-    }
-
-    .mubeen-submit {
-        text-align: right;
-        width: 200px;
-        float: right;
-        margin-top: 25px;
-    }
-
-    .mubeen-submit input {
-        padding: 10px;
-        font-size: 20px;
-        border-radius: 5px !important;
-    }
-
-    .my-warning {
-        width: 100%;
-        display: none;
-    }
-
-    .popup-window {
-        position: fixed;
-        top: 72px;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 25px;
-        height: 100%;
-        display: none;
-    }
-
-    .popup-window .popup-close {
-        color: #ffffff;
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        background-color: #002d8a;
-        box-sizing: border-box;
-        padding: 5px 9px;
-        width: 25px;
-        height: 25px;
-        font-weight: bold;
-        cursor: pointer;
-        z-index: 9999;
-    }
-
-    .popup-window .popup-content {
-        background-color: #FFFFFF;
-        padding: 20px 12px;
-        font-size: 12px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .popup-window .popup-content p {
-        text-align: center;
-        color: #002d8a;
-        font-size: 15px;
-    }
-
-    .btn-paypal {
-        color: #fff;
-        background-color: #002d8a;
-        border-color: #002d8a;
-    }
-
-    .btn-paypal:hover {
-        color: #fff !important;
-    }
-
-    p.form-text-head {
-        font-family: PayPal-Sans-Big, Helvetica Neue, Arial, sans-serif;
-        text-align: center;
-        margin-bottom: 25px;
-        font-size: 25px;
-        padding-left: 50px;
-        padding-right: 50px;
-        /*text-transform: capitalize;*/
-    }
-
-    .form-footer {
-        border-top: 2px dotted #cbd2d6;
-        margin-top: 20px;
-    }
-
-    .copy-right-text {
-        font-family: PayPal-Sans-Big, Helvetica Neue, Arial, sans-serif;
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .footer-links {
-        font-family: PayPal-Sans-Big, Helvetica Neue, Arial, sans-serif;
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .footer-links ul {
-        margin: 0px;
-        padding: 0px;
-    }
-
-    .footer-links ul li {
-        list-style-type: none;
-        display: inline-block;
-        margin-right: 5px;
-    }
-
-    .footer-links ul li a {
-        color: #333;
-        text-decoration: none;
-        font-family: PayPal-Sans-Big, Helvetica Neue, Arial, sans-serif;
-    }
-
-    .footer-links ul li a:hover {
-        color: #000;
-    }
-
-    @media (max-width: 426px) {
-        .wpmk-form {
-            width: 100%;
-        }
-
-        .amount-wrap {
-            width: 100%;
-        }
-
-        .menu {
-            display: none;
-        }
-
-        .amount-wrap,
-        .footer-wrap {
-            padding-right: 0px;
-        }
-
-        .header {
-            text-align: center;
-        }
-
-        .footer-wrap img {
-            width: 70%;
-        }
-
-        .footer-wrap {
-            text-align: center;
-        }
-
-        .copy-right-text {
-            margin-top: 20px;
-        }
-    }
-</style>
 
 <!DOCTYPE html>
 <html>
@@ -280,6 +13,7 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="theme/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="css/custom.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="theme/code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
@@ -290,7 +24,7 @@
 <script src="theme/plugins/jquery/jquery.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
-    </script>
+
         <div class="row header">
             <div class="col-md-12">
                 <div class="logo">
@@ -307,27 +41,27 @@
                     Make payment for services via PayPal
                 </p>
 
-            <form action="{{route('create_payment')}}" method="POST">
+            <form action="{{route('create_payment')}}" method="POST" id="paypal_form">
                 @csrf
                 <div class="form-group">
                     <label for="first-name">First Name</label>
                     <input type="text" id="first-name" name="first-name" class="form-control" placeholder="First Name"
                            required="required"/>
-                    <div class="form-worning fn">Please fill this field</div>
+                    <div class="form-worning fn">Please enter your first name</div>
                 </div>
 
                 <div class="form-group">
                     <label for="last-name">Last Name</label>
                     <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Last Name"
                            required="required"/>
-                    <div class="form-worning ln">Please fill this field</div>
+                    <div class="form-worning ln">Please enter your last name</div>
                 </div>
 
                 <div class="form-group">
                     <label for="email-address">Paypal Email Address</label>
                     <input type="email" id="email-address" name="email-address" class="form-control"
                            placeholder="example@example.com" required="required"/>
-                    <div class="form-worning pay">Please fill this field</div>
+                    <div class="form-worning pay">Please enter your paypal email</div>
                 </div>
 
                 <div class="form-group">
@@ -341,7 +75,7 @@
                         @endforeach
 
                     </select>
-                    <div class="form-worning sel">Please fill this field</div>
+                    <div class="form-worning sel">Select a service</div>
                 </div>
                 <div class="form-group otherServices">
                     <label for="email-address" id="service-name-input-label">Other Service Details</label>
@@ -360,7 +94,7 @@
                                placeholder="0.00" required="required"/>
                         <div class="my-warning">Please add amount like : <code>10.00</code></div>
                         <div class="form-worning amo-war">Amount must be a numerical value with two decimal places</div>
-                        <div class="form-worning amo">Please fill this field</div>
+                        <div class="form-worning amo">Please enter the amount you want to pay</div>
                     </div>
                 </div>
 
@@ -373,7 +107,7 @@
                             <option value="GBP">GBP</option>
                             <option value="EUR">EUR</option>
                         </select>
-                        <div class="form-worning cur">Please fill this field</div>
+                        <div class="form-worning cur">Select one currency</div>
                     </div>
                 </div>
                 <div style="clear: both;"></div>
@@ -387,35 +121,67 @@
 
                 <div class="footer-wrap">
                     <div class="mubeen-submit">
-                        <input type="submit" name="submit-form" id="submit-form" class="btn btn-primary" value="Pay via PayPal"/>
+                         <button type="submit" name="submit-form" id="submit-form" class="btn btn-block btn-outline-primary btn-lg"
+                        >Pay via PayPal</button>
                     </div>
                 </div>
 
                 <div style="clear: both;"></div>
-                <div class="form-footer">
-                    <div class="col-md-6 copy-right-text">
-                        &copy; 2019 - <?php echo date('Y'); ?> PFA ®. All rights reserved.
-                    </div>
-                    <div class="col-md-6">
-                        <div class="footer-links">
-                            <ul>
-                                <li><a href="https://pfaccounts.com/#About_sec" target="_blank">About</a></li>
-                                <li><a href="https://pfaccounts.com/#Contact_sec" target="_blank">Contact</a></li>
-                                <li><a href="https://pfaccounts.com/#" target="_blank">Privacy</a></li>
-                                <li><a href="https://pfaccounts.com/#Key_sec" target="_blank">Services</a></li>
+                <div class="my-footer">
+
+                        &copy; 2019 - <?php echo date('Y'); ?> PFA ®. All rights reserved.|
+                                <a href="https://pfaccounts.com/#About_sec" target="_blank">About</a>
+                               <a href="https://pfaccounts.com/#Contact_sec" target="_blank">Contact</a>
+                             <a href="https://pfaccounts.com/#" target="_blank">Privacy</a>
+                                <a href="https://pfaccounts.com/#Key_sec" target="_blank">Services</a>
                             </ul>
-                        </div>
-                    </div>
-                </div>
+</div>
+
             </form>
 
             </div>
-        </div>
 
+        </div>
           </div>
           {{-- pop up confirmation --}}
 
+<div class="popup-window">
+    <div class="popup-content">
+        <div class="popup-close">X</div>
+        <p>Please confirm your order</p>
+        <table class="table table-bordered">
+            <tr>
+                <th>First Name</th>
+                <th class="first-name">Mubeen uddin</th>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <th class="last-name">Khan</th>
+            </tr>
+            <tr>
+                <th>Paypal Email Address</th>
+                <th class="email-address">mubeenkhan@live.com</th>
+            </tr>
+            <tr>
+                <th>Service</th>
+                <th class="service">Web Development</th>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <th class="amount">$400</th>
+            </tr>
+            <tr>
 
+
+                <th>Currency Type</th>
+                <th class="currency">USD</th>
+            </tr>
+        </table>
+
+                <button type="submit" name="submit-form" id="final_submit" class="btn btn-block btn-outline-primary btn-lg"
+                       >Pay via PayPal</button>
+       </div>
+</div>
 
 
           <!--/.col (right) -->
@@ -433,25 +199,182 @@
 <!-- AdminLTE for demo purposes -->
 <script src="theme/dist/js/demo.js"></script>
 <script type="text/javascript">
-$(document).ready(function () {
-    $('.otherServices').hide();
-
-    });
-function getNewVal(item) {
-        var selectOption = $( "#services option:selected" ).text();
-        console.log(selectOption);
-        if (selectOption.match(/Others.*/) || selectOption.match(/others.*/)) {
-            $('.otherServices').show();
-            $('#service-name-input').show();
-            $('#service-name-input-label').show();
-
-        } else {
+        $(document).ready(function () {
             $('.otherServices').hide();
-            $('#service-name-input').hide();
-            $('#service-name-input-label').hide();
-        }
 
-    }
+            });
+
+        function getNewVal(item) {
+                var selectOption = $( "#services option:selected" ).text();
+                console.log(selectOption);
+                if (selectOption.match(/Others.*/) || selectOption.match(/others.*/)) {
+                    $('.otherServices').show();
+                    $('#service-name-input').show();
+                    $('#service-name-input-label').show();
+
+                } else {
+                    $('.otherServices').hide();
+                    $('#service-name-input').hide();
+                    $('#service-name-input-label').hide();
+                }
+
+            }
+
+    jQuery('.popup-close').click(function () {
+        jQuery('.popup-window').css('display', 'none');
+    });
+
+            var typingTimer;
+            var doneTypingInterval = 100;
+
+            jQuery('#enter-amount').keyup(function () {
+                clearTimeout(typingTimer);
+                if (jQuery('#enter-amount').val) {
+                    typingTimer = setTimeout(doneTyping, doneTypingInterval);
+                }
+            });
+
+            function doneTyping() {
+                var vale = jQuery('#enter-amount').val();
+                var regexTest = /^\d+(?:\.\d\d?)?$/;
+                var ok = regexTest.test(vale);
+
+                if (!ok) {
+                    jQuery('.if-error').addClass('has-error');
+                    jQuery('.my-warning').css('display', 'block');
+                } else {
+                    jQuery('.if-error').removeClass('has-error');
+                    jQuery('.my-warning').css('display', 'none');
+                }
+            }
+
+            jQuery(document).ready(function ($) {
+                $("#enter-amount").focusin(function () {
+                    // $(this).css("background-color", "#FFFFCC");
+                    // console.log( 'focusin' );
+                });
+                $("#enter-amount").focusout(function () {
+                    var val = $(this).val();
+                    //console.log( addZeroes(val) );
+                    $(this).val(addZeroes(val));
+                });
+
+                $('.otherServices').hide();
+            });
+
+            function addZeroes(num) {
+                // Cast as number
+                var num = Number(num);
+                // If not a number, return 0
+                if (isNaN(num)) {
+                    return 0;
+                }
+                // If there is no decimal, or the decimal is less than 2 digits, toFixed
+                if (String(num).split(".").length < 2 || String(num).split(".")[1].length <= 2) {
+                    num = num.toFixed(2);
+                }
+                // Return the number
+                return num;
+            }
+
+
+
+
+            jQuery("#final_submit").click(function (event) {
+            event.preventDefault();
+
+                console.log('final');
+
+            $("#paypal_form")[0].submit();
+            });
+
+            jQuery("#submit-form").click(function (event) {
+
+            event.preventDefault();
+                var firstname = jQuery('#first-name').val();
+                var lastname = jQuery('#last-name').val();
+                var emailaddress = jQuery('#email-address').val();
+                var services = jQuery('#services').text();
+
+                /* if(services == 'others'){
+                    services  = jQuery( '#service-name-input' ).val();
+                }*/
+
+                var otherservices = jQuery('#service-name-input').val();
+                var amount = jQuery('#enter-amount').val();
+                var currency = jQuery('#currency-type').val();
+
+                var services = $( "#services option:selected" ).text();
+                if (services == "others" || services == "Others") {
+                    service = otherservices;
+                } else {
+                    service = services;
+                }
+
+                if (firstname == '') {
+                    jQuery(".fn").css('display', 'block');
+                } else {
+                    jQuery(".fn").css('display', 'none');
+                }
+
+                if (lastname == '') {
+                    jQuery(".ln").css('display', 'block');
+                } else {
+                    jQuery(".ln").css('display', 'none');
+                }
+
+                if (emailaddress == '') {
+                    jQuery(".pay").css('display', 'block');
+                } else {
+                    jQuery(".pay").css('display', 'none');
+                }
+
+                if (services == '') {
+                    jQuery(".sel").css('display', 'block');
+                } else {
+                    jQuery(".sel").css('display', 'none');
+                }
+
+                if (amount == '') {
+                    jQuery(".amo").css('display', 'block');
+                } else {
+                    jQuery(".amo").css('display', 'none');
+                }
+
+                if (currency == '') {
+                    jQuery(".cur").css('display', 'block');
+                } else {
+                    jQuery(".cur").css('display', 'none');
+                }
+
+                var regexTest = /^\d+(?:\.\d\d?)?$/;
+                var ok = regexTest.test(amount);
+
+                if (firstname == '' || lastname == '' || emailaddress == '' || services == '' || amount == '' || currency == '') {
+                    return false;
+                }
+
+                if (!ok) {
+                    jQuery('.amo-war').css('display', 'block');
+                    return false;
+                } else {
+                    jQuery('.amo-war').css('display', 'none');
+                }
+                var mail = "";
+                jQuery('.first-name').text(firstname);
+                jQuery('.last-name').text(lastname);
+                jQuery('.email-address').text(emailaddress);
+                jQuery('.service').text(service);
+                jQuery('.amount').text(amount);
+                jQuery('.currency').text(currency);
+
+                jQuery(".item_name").val(service);
+                jQuery(".amount-paypal").val(amount);
+                jQuery(".currency_code").val(currency);
+
+                jQuery('.popup-window').css('display', 'block');
+
+            });
 
 </script>
 </body>

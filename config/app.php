@@ -177,12 +177,14 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Swap\Laravel\SwapServiceProvider::class
 
 
 
 
 
-    ],
+
+    ],  
 
     /*
     |--------------------------------------------------------------------------
@@ -234,6 +236,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Form' => Collective\Html\FormFacade::class,
+        'Swap' => Swap\Laravel\Facades\Swap::class,
 
         'Html' => Collective\Html\HtmlFacade::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,

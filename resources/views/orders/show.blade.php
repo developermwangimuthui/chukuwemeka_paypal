@@ -122,7 +122,7 @@
                   <div class="table-responsive">
                     <table class="table">
                       <tr>
-                        <th style="width:50%">Subtotal:</th>
+                        <th style="width:53%">Subtotal:</th>
                         <td>@if($order->currency_type == 'USD')
                             $
                         @endif

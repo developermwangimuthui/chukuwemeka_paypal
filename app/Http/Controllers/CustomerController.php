@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Hash;
 use DB;
 class CustomerController extends Controller
 {
+
+
+    public function __construct()
+    {
+
+         $this->middleware('permission:view_customers', ['only' => ['index']]);
+         $this->middleware('permission:view_reports', ['only' => ['reports']]);
+         $this->middleware('permission:edit_customers', ['only' => ['edit']]);
+         $this->middleware('permission:delete_customers', ['only' => ['destroy']]);
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -61,11 +72,13 @@ class CustomerController extends Controller
 
         $customer_reports = User::join('customers','users.id','=','customers.user_id')
         ->join('orders','customers.id','=','orders.customer_id')
+        ->where('orders.deleted_at','=',null)
+
         ->select([
             'first_name',
             'last_name',
             'email',
-            DB::raw("SUM(orders.amount) as amount"),
+            DB::raw("SUM(orders.converted_amount) as converted_amount"),
 
         ])->groupBy('customers.id')
         ->get();

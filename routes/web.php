@@ -14,8 +14,9 @@
 use App\Models\Service;
 
 Route::get('/', function () {
-    $services = Service::all();
-    return view('welcome',compact('services'));
+
+    $services= Service::orderBy('updated_at','ASC')->get();
+        return view('welcome',compact('services'));
 });
 
 Auth::routes();
