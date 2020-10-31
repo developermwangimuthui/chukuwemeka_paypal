@@ -61,7 +61,7 @@
                     <label for="email-address">Paypal Email Address</label>
                     <input type="email" id="email-address" name="email-address" class="form-control"
                            placeholder="example@example.com" required="required"/>
-                    <div class="form-worning pay">Please enter your paypal email</div>
+                    <div class="form-worning payemail">Please enter your paypal email</div>
                 </div>
 
                 <div class="form-group">
@@ -83,7 +83,7 @@
                            placeholder="Other Service Detail"/>
 
 
-                    <div class="form-worning pay">Please fill this field</div>
+                    <div class="form-worning otherpay">Please fill this field</div>
                 </div>
 
 
@@ -121,7 +121,7 @@
 
                 <div class="footer-wrap">
                     <div class="mubeen-submit">
-                         <button type="submit" name="submit-form" id="submit-form" class="btn btn-block btn-outline-primary btn-lg"
+                         <button type="submit" name="submit-form" id="submit-form" class="btn btn-block bg-gradient-primary first-pay"
                         >Pay via PayPal</button>
                     </div>
                 </div>
@@ -152,23 +152,23 @@
         <table class="table table-bordered">
             <tr>
                 <th>First Name</th>
-                <th class="first-name">Mubeen uddin</th>
+                <th class="first-name"></th>
             </tr>
             <tr>
                 <th>Last Name</th>
-                <th class="last-name">Khan</th>
+                <th class="last-name"></th>
             </tr>
             <tr>
                 <th>Paypal Email Address</th>
-                <th class="email-address">mubeenkhan@live.com</th>
+                <th class="email-address"></th>
             </tr>
             <tr>
                 <th>Service</th>
-                <th class="service">Web Development</th>
+                <th class="service"></th>
             </tr>
             <tr>
                 <th>Amount</th>
-                <th class="amount">$400</th>
+                <th class="amount"></th>
             </tr>
             <tr>
 
@@ -178,7 +178,7 @@
             </tr>
         </table>
 
-                <button type="submit" name="submit-form" id="final_submit" class="btn btn-block btn-outline-primary btn-lg"
+                <button type="submit" name="submit-form" id="final_submit" class="btn btn-block bg-gradient-primary first-pay-final"
                        >Pay via PayPal</button>
        </div>
 </div>
@@ -204,24 +204,35 @@
 
             });
 
-        function getNewVal(item) {
-                var selectOption = $( "#services option:selected" ).text();
-                if (selectOption.match(/Other.*/) || selectOption.match(/other.*/)) {
-                    $('.otherServices').show();
-                    $('#service-name-input').show();
-                    $('#service-name-input-label').show();
+            function getNewVal(item) {
+                    var selectOption = $( "#services option:selected" ).text();
+                    if (selectOption.match(/Other.*/) || selectOption.match(/other.*/)) {
+                        $('.otherServices').show();
+                        $('#service-name-input').show();
+                        $('#service-name-input-label').show();
 
 
-                } else {
-                    $('.otherServices').hide();
-                    $('#service-name-input').hide();
-                    $('#service-name-input-label').hide();
+                    } else {
+                        $('.otherServices').hide();
+                        $('#service-name-input').hide();
+                        $('#service-name-input-label').hide();
+
+                    }
 
                 }
 
-            }
-
     jQuery('.popup-close').click(function () {
+        jQuery('.first-name').text('');
+                jQuery('.last-name').text('');
+                jQuery('.email-address').text('');
+
+                jQuery('.service').text('');
+
+                jQuery('.amount').text('');
+                jQuery('.currency').text('');
+
+                jQuery(".amount-paypal").val('');
+                jQuery(".currency_code").val('');
         jQuery('.popup-window').css('display', 'none');
     });
 
@@ -296,26 +307,38 @@
                 var lastname = jQuery('#last-name').val();
                 var emailaddress = jQuery('#email-address').val();
                 var services = jQuery('#services').text();
-
-                /* if(services == 'others'){
-                    services  = jQuery( '#service-name-input' ).val();
-                }*/
-
                 var otherservices = jQuery('#service-name-input').val();
                 var amount = jQuery('#enter-amount').val();
                 var currency = jQuery('#currency-type').val();
-
                 var services = $( "#services option:selected" ).text();
-                if (services == "others" || services == "Others") {
-                    service = otherservices;
-                } else {
-                    service = services;
+
+
+                console.log(services);
+                if (services.match(/Other.*/) || services.match(/other.*/)) {
+                    services = otherservices;
+
+                console.log("Other"+services);
+                } else if(services == "Select Services" || services.match(/Select Services.*/)) {
+
+                console.log("select"+services);
+                    services = '';
+                }
+                 else {
+                    services = services;
+
+
+                    console.log("Real"+services);
                 }
 
                 if (firstname == '') {
                     jQuery(".fn").css('display', 'block');
                 } else {
                     jQuery(".fn").css('display', 'none');
+                }
+                if (otherservices == '') {
+                    jQuery(".otherpay").css('display', 'block');
+                } else {
+                    jQuery(".otherpay").css('display', 'none');
                 }
 
                 if (lastname == '') {
@@ -325,9 +348,9 @@
                 }
 
                 if (emailaddress == '') {
-                    jQuery(".pay").css('display', 'block');
+                    jQuery(".payemail").css('display', 'block');
                 } else {
-                    jQuery(".pay").css('display', 'none');
+                    jQuery(".payemail").css('display', 'none');
                 }
 
                 if (services == '') {
@@ -365,11 +388,15 @@
                 jQuery('.first-name').text(firstname);
                 jQuery('.last-name').text(lastname);
                 jQuery('.email-address').text(emailaddress);
-                jQuery('.service').text(service);
+                if (services == "others" || services == "Others") {
+
+                jQuery('.service').text(otherservices);
+                } else {
+                jQuery('.service').text(services);
+                }
                 jQuery('.amount').text(amount);
                 jQuery('.currency').text(currency);
 
-                jQuery(".item_name").val(service);
                 jQuery(".amount-paypal").val(amount);
                 jQuery(".currency_code").val(currency);
 
