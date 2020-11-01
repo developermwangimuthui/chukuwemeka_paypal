@@ -10,7 +10,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -84,17 +84,17 @@
                   Sales
                 </h3>
                 <div class="card-tools">
-                  <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item" style="background-color: #17A2B8">
+                  <ul class="nav nav-pills ml-auto d-flex p-2">
+                    <li class="nav-item " style="background-color: #17A2B8">
                       <a class="nav-link active">Cancelled</a>
                     </li>
-                    <li class="nav-item" style="background-color: #FFC107">
+                    <li class="nav-item " style="background-color: #FFC107">
                       <a class="nav-link" >Pending</a>
                     </li>
-                    <li class="nav-item" style="background-color: red;">
+                    <li class="nav-item " style="background-color: red;">
                       <a class="nav-link ">Returned</a>
                     </li>
-                    <li class="nav-item" style="background-color:green">
+                    <li class="nav-item " style="background-color:green; margin: 2px 2px 2px 2px">
                       <a class="nav-link" >Completed</a>
                     </li>
                   </ul>
