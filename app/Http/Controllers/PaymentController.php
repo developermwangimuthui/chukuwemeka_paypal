@@ -55,14 +55,14 @@ class PaymentController  extends Controller
                 $paypal_secret // ClientSecret
             )
         );
-        // $apiContext->setConfig(
-        //     array(
-        //         'mode' => 'LIVE',
-        //         'log.LogEnabled' => true,
-        //         'log.FileName' => '../PayPal.log',
-        //         'log.LogLevel' => 'INFO', // PLEASE USE `INFO` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
-        //     )
-        // );
+        $apiContext->setConfig(
+            array(
+                'mode' => 'LIVE',
+                'log.LogEnabled' => true,
+                'log.FileName' => '../PayPal.log',
+                'log.LogLevel' => 'INFO', // PLEASE USE `INFO` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
+            )
+        );
 
 
         $sku = Str::uuid();
@@ -134,14 +134,14 @@ class PaymentController  extends Controller
         // 'ELt1f2cHYS40jzmtP3BB2-k3hb1v6HEE5iN9lIFpNH0l4ki__MWSDkPgo3aBMXXyKoufokVX_At1Yqx5' // ClientSecret
 
 
-        //   $apiContext->setConfig(
-        //                 array(
-        //                     'mode' => 'LIVE',
-        //                     'log.LogEnabled' => true,
-        //                     'log.FileName' => '../PayPal.log',
-        //                     'log.LogLevel' => 'INFO', // PLEASE USE `INFO` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
-        //                 )
-        //             );
+          $apiContext->setConfig(
+                        array(
+                            'mode' => 'LIVE',
+                            'log.LogEnabled' => true,
+                            'log.FileName' => '../PayPal.log',
+                            'log.LogLevel' => 'INFO', // PLEASE USE `INFO` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
+                        )
+                    );
 
 
         $paymentId = request('paymentId');
