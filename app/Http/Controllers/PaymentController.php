@@ -65,7 +65,7 @@ class PaymentController  extends Controller
         );
 
 
-        $sku = Str::uuid();
+        $sku ="";
 
 
         $payer = new Payer();

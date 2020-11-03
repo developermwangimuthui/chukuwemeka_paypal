@@ -125,7 +125,9 @@
                             @if($order->currency_type == 'GBP')
                                 £
                             @endif
-                            {{ $order->amount }}</td>
+
+                            {{number_format($order->amount,2) }}
+                        </td>
                     </tr>
                     <tr >
                         <td></td>
@@ -139,7 +141,7 @@
                             @if($order->currency_type == 'GBP')
                                 £
                             @endif
-                            {{$order->amount }}
+                            {{number_format($order->amount,2) }}
                         </td>
                     </tr>
                     <tr >
@@ -154,7 +156,8 @@
                             @if($order->currency_type == 'GBP')
                                 £
                             @endif
-                            0
+
+                            {{number_format(0,2) }}
                         </td>
                     </tr>
                     <tr >
@@ -170,7 +173,10 @@
                             @if($order->currency_type == 'GBP')
                                 £
                             @endif
-                            {{$order->amount }}</strong>
+
+                            {{number_format($order->amount,2) }}
+
+                        </strong>
                         </td>
                     </tr>
 

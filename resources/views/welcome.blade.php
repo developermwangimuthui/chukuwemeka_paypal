@@ -151,30 +151,30 @@
         <p>Please confirm your order</p>
         <table class="table table-bordered">
             <tr>
-                <th>First Name</th>
-                <th class="first-name"></th>
+                <th style="font-size: 1.5rem">First Name</th>
+                <th class="first-name" style="font-size: 1.8rem"></th>
             </tr>
             <tr>
-                <th>Last Name</th>
-                <th class="last-name"></th>
+                <th style="font-size: 1.5rem">Last Name</th>
+                <th class="last-name" style="font-size: 1.8rem"></th>
             </tr>
             <tr>
-                <th>Paypal Email Address</th>
-                <th class="email-address"></th>
+                <th style="font-size: 1.5rem">Paypal Email Address</th>
+                <th class="email-address" style="font-size: 1.8rem"></th>
             </tr>
             <tr>
-                <th>Service</th>
-                <th class="service"></th>
+                <th style="font-size: 1.5rem">Service</th>
+                <th class="service" style="font-size: 1.8rem"></th>
             </tr>
             <tr>
-                <th>Amount</th>
-                <th class="amount"></th>
+                <th  style="font-size: 1.5rem">Amount</th>
+                <th class="amount" style="font-size: 1.8rem"></th>
             </tr>
             <tr>
 
 
-                <th>Currency Type</th>
-                <th class="currency">USD</th>
+                <th style="font-size: 1.5rem">Currency Type</th>
+                <th class="currency" style="font-size: 1.5rem">USD</th>
             </tr>
         </table>
 
@@ -359,7 +359,7 @@
                     jQuery(".sel").css('display', 'none');
                 }
 
-                if (amount == '') {
+                if (amount == '' || amount<=0.5) {
                     jQuery(".amo").css('display', 'block');
                 } else {
                     jQuery(".amo").css('display', 'none');

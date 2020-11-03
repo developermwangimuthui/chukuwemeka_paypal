@@ -32,11 +32,12 @@ Route::post('/service/update/{id}', 'ServiceController@update')->name('service.u
 Route::get('/service/destroy/{id}', 'ServiceController@destroy')->name('service.destroy');
 
 // //...............................Customers...........................//
+
+Route::get('/customer/delete/{id}', 'CustomerController@destroy')->name('customer.destroy');
 Route::get('/customer/index', 'CustomerController@index')->name('customer.index');
 Route::post('/customer/store', 'CustomerController@store')->name('customer.store');
 Route::get('/customer/edit/{id}', 'CustomerController@edit')->name('customer.edit');
 Route::post('/customer/update', 'CustomerController@update')->name('customer.update');
-Route::get('/customer/destroy/{id}', 'CustomerController@destroy')->name('customer.destroy');
 // //...............................Orders...........................//
 Route::get('/order/index', 'OrderController@index')->name('order.index');
 Route::post('/order/store', 'OrderController@store')->name('order.store');
