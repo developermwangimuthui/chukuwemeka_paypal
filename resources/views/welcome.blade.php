@@ -374,9 +374,11 @@
                 var regexTest = /^\d+(?:\.\d\d?)?$/;
                 var ok = regexTest.test(amount);
 
-                if (firstname == '' || lastname == '' || emailaddress == '' || services == '' || amount == '' || currency == '') {
+                if (firstname == '' || lastname == '' || emailaddress == '' || services == '' || amount == '' ||amount <=1 || currency == '') {
                     return false;
-                }
+                }else{
+
+
 
                 if (!ok) {
                     jQuery('.amo-war').css('display', 'block');
@@ -401,6 +403,9 @@
                 jQuery(".currency_code").val(currency);
 
                 jQuery('.popup-window').css('display', 'block');
+
+                }
+
 
             });
 
